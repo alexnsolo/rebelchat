@@ -85,6 +85,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  json
   padrino (= 0.12.4)
   pg
   rake

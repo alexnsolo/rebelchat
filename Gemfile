@@ -19,6 +19,7 @@ gem 'slim'
 gem 'sqlite3', :group => 'development'
 gem 'pg', :group => 'production'
 gem 'sequel'
+gem 'json'
 
 # Test requirements
 

@@ -32,6 +32,7 @@ module Rebelchat
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :chatmessages, '/chatmessages'
       role.project_module :chatrooms, '/chatrooms'
       role.project_module :accounts, '/accounts'
     end
