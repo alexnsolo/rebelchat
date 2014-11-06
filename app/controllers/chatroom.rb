@@ -6,15 +6,26 @@ Rebelchat::App.controllers :chatroom do
   end
 
   post :index do
-    json_data = JSON.parse(request.body.read)
-    # This is dumb, why does Sequel complain about the id being reserved? 
-    # Can't it tell that id=null means to create a new one?
-    json_data.delete("id") 
-    chatroom = Chatroom.from_json(json_data.to_json)
+    chatroom = Chatroom.from_json(request.body.read)
     if (chatroom.save rescue false)
       chatroom.to_json
     else
-      :error
+      halt 500
+    end
+  end
+
+  delete :index, :with => :id do
+    puts params[:id]
+    chatroom = Chatroom[params[:id]]
+    puts chatroom
+    if chatroom
+      if chatroom.destroy
+        halt 200
+      else
+        halt 500
+      end
+    else
+      halt 404
     end
   end
 

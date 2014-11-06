@@ -28,3 +28,7 @@ footer {
 .chatroom-list > .chatroom .btn {
 	margin-left: 5px;
 }
+
+.tiny-text {
+	font-size: 11px;
+}

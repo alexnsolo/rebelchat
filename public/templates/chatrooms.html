@@ -11,13 +11,16 @@
 <p> Hello, <!-- ko text: $view.callsign --><!-- /ko --> </p> 
 <br/>
 
-<!-- ko if: $view.chatrooms -->
+<!-- ko if: $view.chatrooms.length -->
 <div class="chatroom-list" data-bind="foreach: $view.chatrooms">
 	<div class="well well-sm chatroom">
 		<h4><!-- ko text: name --><!-- /ko --></h4>
 		<hr/>
+		<div class="pull-left">
+			<p class="text-muted tiny-text">Frequency: <!-- ko text: id --><!-- /ko --></p>
+		</div>
 		<div class="pull-right">
-			<button type="button" class="btn btn-sm btn-danger">
+			<button type="button" class="btn btn-sm btn-danger" data-bind="click: $view.deleteChatroom">
 				<span class="glyphicon glyphicon-remove"></span> Disband
 			</button>
 			<button type="button" class="btn btn-sm btn-success">
@@ -27,7 +30,7 @@
 	</div>
 </div>
 <!-- /ko -->
-<!-- ko ifnot: $view.chatrooms -->
+<!-- ko ifnot: $view.chatrooms.length -->
 <p class="text-muted">All quiet on the home front.</p>
 <!-- /ko -->
 

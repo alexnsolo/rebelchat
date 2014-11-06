@@ -12,19 +12,19 @@
 			this.chatrooms.fetch();
 		},
 		newChatroom: function() {
-			var self = this;
 			var createChatroomModal = new RebelChat.Views.CreateChatroomView();
 			createChatroomModal.on('submit', function(chatroomParams) {
 				$('#chatroomModal').modal('hide');
-				var chatroom = new RebelChat.Models.Chatroom(chatroomParams);
-				chatroom.create().done(function() {
-					self.chatrooms.fetch();
-					console.log('bam!');
-				});
-			});
+				this.chatrooms.create(chatroomParams, {attributes: ["name"]});
+			}, this);
 
 			this.modalView(createChatroomModal);
 			$('#chatroomModal').modal();
+		},
+		deleteChatroom: function(chatroom) {
+			if (confirm("Are you sure?") !== true) return;
+			console.log(chatroom);
+			this.chatrooms.destroy(chatroom);
 		}
 	});
 })();
