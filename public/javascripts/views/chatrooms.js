@@ -23,7 +23,6 @@
 		},
 		deleteChatroom: function(chatroom) {
 			if (confirm("Are you sure?") !== true) return;
-			console.log(chatroom);
 			this.chatrooms.destroy(chatroom);
 		}
 	});

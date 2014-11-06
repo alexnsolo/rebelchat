@@ -15,13 +15,9 @@ Rebelchat::App.controllers :chatroom do
   end
 
   delete :index, :with => :id do
-    puts params[:id]
     chatroom = Chatroom[params[:id]]
-    puts chatroom
     if chatroom
-      if chatroom.destroy
-        halt 200
-      else
+      if !chatroom.destroy
         halt 500
       end
     else
