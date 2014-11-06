@@ -6,3 +6,25 @@ body {
 .navbar-inverse {
 	background-color: #A30000;
 }
+
+footer {
+	margin-top: 100px;
+}
+
+.modal {
+	z-index: 1050;
+}
+
+.chatroom-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.chatroom-list > .chatroom {
+	margin-right: 20px;
+	min-width: 300px;
+}
+
+.chatroom-list > .chatroom .btn {
+	margin-left: 5px;
+}

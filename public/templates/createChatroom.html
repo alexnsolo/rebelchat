@@ -1,0 +1,20 @@
+<form role="form" data-bind="submit: $view.submit">
+	<div class="modal-header">
+		<h4 class="modal-title">Create New Chatroom</h4>
+	</div>
+	<div class="modal-body">
+		<!-- ko if: $view.errorMessage -->
+		<div class="alert alert-danger">
+			<!-- ko text: $view.errorMessage --><!-- /ko -->
+		</div>
+		<!-- /ko -->
+		<div class="form-group">
+			<label>Name</label>
+			<input type="text" class="form-control" maxlength="50" data-bind="value: $view.chatroomName">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="submit" class="btn btn-primary">Create</button>
+	</div>
+</form>

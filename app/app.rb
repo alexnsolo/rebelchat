@@ -9,6 +9,13 @@ module Rebelchat
 	  File.read(File.join('public', 'index.html'))
 	end
 
+    get :csrf_token, :map => '/csrf_token', :provides => :json do
+      result = {
+          :csrf => session[:csrf]
+      }
+      JSON.pretty_generate result
+    end
+
     ##
     # Caching support.
     #

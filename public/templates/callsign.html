@@ -1,0 +1,16 @@
+<div class="jumbotron">
+	<h2>Identify Yourself</h2>
+	<br/>
+	<form role="form" data-bind="submit: $view.submit">
+		<!-- ko if: $view.errorMessage -->
+		<div class="alert alert-danger">
+			<!-- ko text: $view.errorMessage --><!-- /ko -->
+		</div>
+		<!-- /ko -->
+		<div class="form-group">
+			<label>Callsign</label>
+			<input type="text" class="form-control" placeholder="Pick something secretive..." maxlength="50" data-bind="value: $view.callsign, hasFocus: true">
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>

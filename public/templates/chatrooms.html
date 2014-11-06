@@ -1,0 +1,40 @@
+<div class="clearfix">
+	<h2 class="pull-left">Chatrooms</h2>
+	<div class="pull-right">
+		<br/>
+		<button type="button" class="btn btn-info" data-bind="click: $view.newChatroom">
+			<span class="glyphicon glyphicon-plus"></span> New Chatroom
+		</button>
+	</div>
+</div>
+
+<p> Hello, <!-- ko text: $view.callsign --><!-- /ko --> </p> 
+<br/>
+
+<!-- ko if: $view.chatrooms -->
+<div class="chatroom-list" data-bind="foreach: $view.chatrooms">
+	<div class="well well-sm chatroom">
+		<h4><!-- ko text: name --><!-- /ko --></h4>
+		<hr/>
+		<div class="pull-right">
+			<button type="button" class="btn btn-sm btn-danger">
+				<span class="glyphicon glyphicon-remove"></span> Disband
+			</button>
+			<button type="button" class="btn btn-sm btn-success">
+				<span class="glyphicon glyphicon-log-in"></span> Join
+			</button>
+		</div>
+	</div>
+</div>
+<!-- /ko -->
+<!-- ko ifnot: $view.chatrooms -->
+<p class="text-muted">All quiet on the home front.</p>
+<!-- /ko -->
+
+<div class="modal fade" id="chatroomModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- ko view: $view.modalView --><!-- /ko -->
+		</div>
+	</div>
+</div>
