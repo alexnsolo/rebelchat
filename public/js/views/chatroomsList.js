@@ -1,6 +1,6 @@
 (function() {
-	RebelChat.Views.ChatroomsView = Falcon.View.extend({
-		url: 'chatrooms.html',
+	RebelChat.Views.ChatroomsListView = Falcon.View.extend({
+		url: 'chatroomsList.html',
 		defaults: {
 			'callsign': function() { return RebelChat.User.callsign; },
 			'chatrooms': function() { return new RebelChat.Collections.Chatrooms(); }
@@ -24,6 +24,9 @@
 		deleteChatroom: function(chatroom) {
 			if (confirm("Are you sure?") !== true) return;
 			this.chatrooms.destroy(chatroom);
+		},
+		joinChatroom: function(chatroom) {
+			this.trigger('joinChatroom', chatroom);
 		}
 	});
 })();

@@ -5,8 +5,6 @@
 			'errorMessage': null,
 			'chatroomName': null
 		},
-		initialize: function() {
-		},
 		submit: function() {
 			var chatroomName = this.chatroomName();
 			if (chatroomName && chatroomName.length > 0) {

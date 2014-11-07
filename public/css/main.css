@@ -20,13 +20,17 @@ footer {
 	flex-wrap: wrap;
 }
 
-.chatroom-list > .chatroom {
+.chatroom-list > .chatroom-list-item {
 	margin-right: 20px;
 	min-width: 300px;
 }
 
-.chatroom-list > .chatroom .btn {
+.chatroom-list > .chatroom-list-item .btn {
 	margin-left: 5px;
+}
+
+.chatroom {
+	padding: 30px 20px;
 }
 
 .tiny-text {

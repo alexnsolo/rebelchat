@@ -13,7 +13,7 @@
 
 <!-- ko if: $view.chatrooms.length -->
 <div class="chatroom-list" data-bind="foreach: $view.chatrooms">
-	<div class="well well-sm chatroom">
+	<div class="well well-sm chatroom-list-item">
 		<h4><!-- ko text: name --><!-- /ko --></h4>
 		<hr/>
 		<div class="pull-left">
@@ -23,7 +23,7 @@
 			<button type="button" class="btn btn-sm btn-danger" data-bind="click: $view.deleteChatroom">
 				<span class="glyphicon glyphicon-remove"></span> Disband
 			</button>
-			<button type="button" class="btn btn-sm btn-success">
+			<button type="button" class="btn btn-sm btn-success" data-bind="click: $view.joinChatroom">
 				<span class="glyphicon glyphicon-log-in"></span> Join
 			</button>
 		</div>
