@@ -8,7 +8,6 @@
 			var _this = this;
 	
 			this.showChatroomView = function(chatroom) {
-				console.log(chatroom);
 				var chatroomView = new RebelChat.Views.ChatroomView(chatroom);
 				chatroomView.on('goBack', this.showChatroomsListView, this)
 				this.currentView(chatroomView);

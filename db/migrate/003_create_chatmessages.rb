@@ -2,9 +2,10 @@ Sequel.migration do
   up do
     create_table :chatmessages do
       primary_key :id
+      foreign_key :chatroom_id, :chatrooms
       String :author
       Text :content
-      Chatroom :chatroom 
+      DateTime :timestamp
     end
   end
 

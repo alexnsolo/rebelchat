@@ -17,6 +17,7 @@ Rebelchat::App.controllers :chatroom do
   delete :index, :with => :id do
     chatroom = Chatroom[params[:id]]
     if chatroom
+      Chatmessage.filter(:chatroom_id => params[:id]).destroy # there's gotta be a better way to do this...
       if !chatroom.destroy
         halt 500
       end

@@ -1,5 +1,5 @@
 class Chatroom < Sequel::Model
-	String :name
+	one_to_many :chatmessages
 	
 	plugin :json_serializer
 end

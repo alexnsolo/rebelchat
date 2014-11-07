@@ -5,4 +5,30 @@
 	<!-- ko with: $view.chatroom -->
 	<h2><!-- ko text: name --><!-- /ko --></h2>
 	<!-- /ko -->
+	<div class="panel panel-default chatroom-view">
+		<!-- ko if: $view.chatmessages.length -->
+		<div class="chatmessage" data-bind="foreach: $view.chatmessages">
+			<p class="message-content clearfix">
+				<div class="pull-left">
+					<div class="text-muted">
+						<div class="author"><!-- ko text: author --><!-- /ko --> whispered </div>
+						<div class="timestamp"><!-- ko text: timeago --><!-- /ko --></div>
+					</div>
+				</div>
+				<div class="pull-left">
+					<!-- ko text: content --><!-- /ko -->
+				</div>
+			</p>
+		</div>
+		<!-- /ko -->
+		<!-- ko ifnot: $view.chatmessages.length -->
+		<p class="text-muted">No whispers yet.</p>
+		<!-- /ko -->
+	</div>
+	<form class="new-chatmessage-form form" role="form" data-bind="submit: $view.submitMessage">
+	  <div class="form-group">
+	  	  <input id="chatInput" class="form-control" type="text" placeholder="Whisper something..." maxlength="255" data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnInput">
+	  </div>
+	  <button type="submit" class="btn btn-success">Send</button>
+	</form>
 </div>
