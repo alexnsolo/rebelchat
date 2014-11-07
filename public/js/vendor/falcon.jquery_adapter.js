@@ -76,12 +76,11 @@
     jQueryAdapter.prototype.standardizeOptions = function(data_object, type, options, context) {
       var output_options, _ref1;
       output_options = jQueryAdapter.__super__.standardizeOptions.call(this, data_object, type, options, context);
-      if (!isString(output_options.dataType)) {
-        if (this.config.dataTypeMap.hasOwnProperty(type)) {
-          output_options.dataType = this.config.dataTypeMap[type];
-        }
-        else { 
-          output_options.dataType = 'json';
+      if (this.config.dataTypeMap.hasOwnProperty(type)) {
+        output_options.dataType = this.config.dataTypeMap[type];
+      } else {
+        if (!isString(output_options.dataType)) {
+          output_options.dataType = "json";
         }
       }
       if (!isString(output_options.contentType)) {
