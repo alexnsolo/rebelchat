@@ -15,9 +15,7 @@
 						<div class="timestamp"><!-- ko text: timeago --><!-- /ko --></div>
 					</div>
 				</div>
-				<div class="pull-left">
-					<!-- ko text: content --><!-- /ko -->
-				</div>
+				<div class="pull-left" data-bind="html: contentParsed"></div>
 			</p>
 		</div>
 		<!-- /ko -->
@@ -26,9 +24,25 @@
 		<!-- /ko -->
 	</div>
 	<form class="new-chatmessage-form form" role="form" data-bind="submit: $view.submitMessage">
-	  <div class="form-group">
-	  	  <input id="chatInput" class="form-control" type="text" placeholder="Whisper something..." maxlength="255" data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnInput">
-	  </div>
-	  <button type="submit" class="btn btn-success">Send</button>
+		<div class="form-group input-group">
+			<input 
+				class="form-control" 
+				type="text" 
+				placeholder="Whisper something..." 
+				maxlength="255" 
+				data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnInput, visible: !$view.showLargeInput()">
+			<textarea 
+				class="form-control" 
+				type="text" 
+				placeholder="Whisper something..." 
+				maxlength="255" 
+				rows="5" 
+				data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnInput, visible: $view.showLargeInput">
+			</textarea>
+			<div class="input-group-addon" data-bind="click: $view.toggleLargeInput">
+				<span class="glyphicon glyphicon-resize-full"></span>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-success">Send</button>
 	</form>
 </div>

@@ -8,7 +8,8 @@
 		},
 		observables: {
 			'newMessageContent': null,
-			'focusOnInput': true
+			'focusOnInput': true,
+			'showLargeInput': false
 		},
 		initialize: function(chatroom) {
 			var _this = this;
@@ -44,6 +45,9 @@
 			this.chatmessages.create(newChatmessage, {attributes: ["author", "content"]});
 			this.newMessageContent('');
 			this.focusOnInput(true);
+		},
+		toggleLargeInput: function() {
+			this.showLargeInput(!this.showLargeInput());
 		}
 	});
 })();

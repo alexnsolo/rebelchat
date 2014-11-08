@@ -9,6 +9,9 @@
 		defaults: {
 			'timeago': function(instance) {
 				return moment(instance.timestamp).fromNow();
+			},
+			'contentParsed': function(instance) {
+				return markdown.toHTML(instance.content);
 			}
 		}
 	});
