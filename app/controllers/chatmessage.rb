@@ -2,7 +2,12 @@ Rebelchat::App.controllers :chatmessage, :parent => :chatroom do
   
   get :index do
     content_type :json
-    Chatmessage.filter(:chatroom_id => params[:chatroom_id]).all.to_json
+    chatroom = Chatroom[params[:chatroom_id]]
+    if (!chatroom)
+      halt 404
+    end
+    
+    Chatmessage.filter(:chatroom_id => chatroom.id).all.to_json
   end
 
   post :index do

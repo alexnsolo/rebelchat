@@ -8,23 +8,28 @@
 		},
 		observables: {
 			'newMessageContent': null,
-			'focusOnInput': true,
+			'focusOnSmallInput': true,
+			'focusOnLargeInput': false,
 			'showLargeInput': false
 		},
 		initialize: function(chatroom) {
 			var _this = this;
 
-			this.chatmessages.fetch();
-
 			function scrollChatroomView() {
 				$('.chatroom-view').animate({
-						scrollTop: 100000000
+					scrollTop: $('.message-content:last').offset().top
 				});
 			}
 
+			function handleRefreshError() {
+				_this.goBack();
+			}
+
+			this.chatmessages.fetch().error(handleRefreshError);
+
 			var lastCount;
 			updater = setInterval(function(){
-				_this.chatmessages.fetch();
+				_this.chatmessages.fetch().error(handleRefreshError);
  
 				if (lastCount < _this.chatmessages.length()) {
 					scrollChatroomView();
@@ -44,10 +49,19 @@
 			};
 			this.chatmessages.create(newChatmessage, {attributes: ["author", "content"]});
 			this.newMessageContent('');
-			this.focusOnInput(true);
+			this.focusOnInput();
 		},
 		toggleLargeInput: function() {
 			this.showLargeInput(!this.showLargeInput());
+			this.focusOnInput();
+		},
+		focusOnInput: function() {
+			if (this.showLargeInput()) {
+				this.focusOnLargeInput(true);
+			}
+			else {
+				this.focusOnSmallInput(true);
+			}
 		}
 	});
 })();

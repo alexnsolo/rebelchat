@@ -1,8 +1,0 @@
-ul class="nav nav-tabs"
-  li = link_to tag_icon(:list, pat(:list)), url(:chatrooms, :index)
-  li = link_to tag_icon(:plus, pat(:new)), url(:chatrooms, :new)
-  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:chatrooms, :edit, :id => @chatroom.id)
-
-div class="tabs-content"
-  = form_for :chatroom, url(:chatrooms, :update, :id => @chatroom.id), :method => :put, :class => 'form-horizontal' do |f|
-    = partial 'chatrooms/form', :locals => { :f => f }

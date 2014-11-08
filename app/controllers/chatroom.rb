@@ -1,8 +1,8 @@
 Rebelchat::App.controllers :chatroom do
   
   get :index do
-  	content_type :json
-  	Chatroom.all.to_json
+    content_type :json
+    Chatroom.all.to_json
   end
 
   post :index do
@@ -27,7 +27,7 @@ Rebelchat::App.controllers :chatroom do
   end
 
   get :index, :with => :id do
-  	content_type :json
+    content_type :json
     Chatroom[params[:id]].to_json
   end
   

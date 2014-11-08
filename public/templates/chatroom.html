@@ -30,14 +30,14 @@
 				type="text" 
 				placeholder="Whisper something..." 
 				maxlength="255" 
-				data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnInput, visible: !$view.showLargeInput()">
+				data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnSmallInput, visible: !$view.showLargeInput()">
 			<textarea 
 				class="form-control" 
 				type="text" 
 				placeholder="Whisper something..." 
 				maxlength="255" 
 				rows="5" 
-				data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnInput, visible: $view.showLargeInput">
+				data-bind="value: $view.newMessageContent, hasFocus: $view.focusOnLargeInput, visible: $view.showLargeInput">
 			</textarea>
 			<div class="input-group-addon" data-bind="click: $view.toggleLargeInput">
 				<span class="glyphicon glyphicon-resize-full"></span>

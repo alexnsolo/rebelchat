@@ -47,6 +47,10 @@ footer {
 	font-size: 11px;
 }
 
+.chatroom .chatmessage * {
+	margin-top: 0px;
+}
+
 
 .tiny-text {
 	font-size: 11px;
